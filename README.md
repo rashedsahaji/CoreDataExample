@@ -120,3 +120,5 @@ actor PhotosRestManager {
 ```
 
 why ```actor``` when you are working with aync await there might be situation where you might have to access a variable from async methods, to avoid data racing actor help them to isolate them.
+
+NOTE: Pagination is kept to 3 Pages only
