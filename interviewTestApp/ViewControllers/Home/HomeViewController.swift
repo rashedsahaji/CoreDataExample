@@ -109,6 +109,16 @@ extension HomeViewController : UICollectionViewDelegate {
         }
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let scrollViewHeight = scrollView.frame.size.height
+        
+        if offsetY > 0 && offsetY >= contentHeight - scrollViewHeight {
+            showAlert(title: "You are in EndGame Now!", message: "Pagination is set 3 pages only.") // Marvel Joke.
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let selectedItem = homeViewModel.photosList.value?[indexPath.item] else {return}
         let detailsViewModel = DetailsViewModel(selectedItem: selectedItem)
